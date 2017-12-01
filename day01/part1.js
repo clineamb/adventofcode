@@ -13,7 +13,6 @@
 var fs = require('fs');
 var startTime = Date.now(); // "25 ms until midnight" check 
 var currDigit;
-var firstDigit;
 var sum = 0;
 
 function checkDigit(d) {
@@ -27,14 +26,12 @@ function checkDigit(d) {
 function getRoboCaptcha(input) {
   var i = 0;
 
-  firstDigit = Number(input.charAt(0));
-
   while(i < input.length) {
     checkDigit(Number(input.charAt(i)));
     i++;
   }
 
-  checkDigit(firstDigit);
+  checkDigit(input.charAt(0));
 
   return sum;
 }
