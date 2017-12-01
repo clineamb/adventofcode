@@ -1,0 +1,19 @@
+{
+  "name": "adventofcode-2017",
+  "version": "1.0.0",
+  "description": "clineamb's answers for Advent of Code 2017",
+  "main": "index.js",
+  "scripts": {
+    "day1": "node ./day01/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clineamb/adventofcode-2017.git"
+  },
+  "author": "clineamb <github@carolineamaba.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/clineamb/adventofcode-2017/issues"
+  },
+  "homepage": "https://github.com/clineamb/adventofcode-2017#readme",
+}
