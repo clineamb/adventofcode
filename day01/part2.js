@@ -17,7 +17,6 @@ For example:
 
 var fs = require('fs');
 var startTime = Date.now(); // "25 ms until midnight" check 
-var currDigit;
 var sum = 0;
 
 function compareDigit(curr, halfway) {
@@ -40,23 +39,14 @@ function getRoboCaptcha(input) {
   return sum;
 }
 
-var testCases = [
-  '1212', '1221', '123425', '123123', '12131415'
-];
+// Let's start!
+fs.readFile('./input', 'utf-8', function(err, data) {
+  if(err) {
+    console.log('>> Problem reading the file!');
+    return process.exit(-1);
+  }
 
-
-for(var ci in testCases) {
-  console.log(ci, getRoboCaptcha(testCases[ci]));
-}
-
-// //  Let's start!
-// fs.readFile('./input', 'utf-8', function(err, data) {
-//   if(err) {
-//     console.log('>> Problem reading the file!');
-//     return process.exit(-1);
-//   }
-
-//   console.log('>> Robot Code:', getRoboCaptcha(data));
-//   console.log('>> Done in ... ' + (Date.now() - startTime) + ' ms');
-//   return process.exit();
-// });
+  console.log('>> Robot Code:', getRoboCaptcha(data));
+  console.log('>> Done in ... ' + (Date.now() - startTime) + ' ms');
+  return process.exit();
+});
