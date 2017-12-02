@@ -15,9 +15,9 @@ For example:
 /*** WORK IN PROGRRESS ***/
 
 
-var fs = require('fs');
-var startTime = Date.now(); // "25 ms until midnight" check 
-var sum = 0;
+const fs = require('fs');
+const startTime = Date.now(); // "25 ms until midnight" check 
+let sum = 0;
 
 function compareDigit(curr, halfway) {
   if(curr === halfway) {
@@ -26,9 +26,9 @@ function compareDigit(curr, halfway) {
 }
 
 function getRoboCaptcha(input) {
-  var i = 0;
-  var half = input.length / 2;
-  var currIndex;
+  let i = 0;
+  let half = input.length / 2;
+  let currIndex;
 
   while(i < input.length) {
     currIndex = ((i + half) % input.length);
@@ -40,13 +40,13 @@ function getRoboCaptcha(input) {
 }
 
 // Let's start!
-fs.readFile('./input', 'utf-8', function(err, data) {
+fs.readFile('./input', 'utf-8', (err, data) => {
   if(err) {
     console.log('>> Problem reading the file!');
     return process.exit(-1);
   }
 
-  console.log('>> Robot Code:', getRoboCaptcha(data));
-  console.log('>> Done in ... ' + (Date.now() - startTime) + ' ms');
+  console.log(`>> Robot Code: ${getRoboCaptcha(data)}`);
+  console.log(`>> Done in ... ${(Date.now() - startTime)} ms`);
   return process.exit();
 });

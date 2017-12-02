@@ -1,12 +1,11 @@
-var fs = require('fs');
-var input = fs.readFileSync('./input', 'utf-8');
-// var input = '1122';
-var sum = 0;
-var inputOffset = 1
+const fs = require('fs');
+const input = fs.readFileSync('./input', 'utf-8');
+let sum = 0;
+let inputOffset = 1
 
 function roboCompare(i, length, offset) {
-  var curr = input.charAt(i);
-  var next = input.charAt((i + offset) % length); // circular
+  let curr = input.charAt(i);
+  let next = input.charAt((i + offset) % length); // circular
 
   if(curr === next) {
     sum += Number(curr);

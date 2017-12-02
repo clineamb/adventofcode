@@ -10,10 +10,10 @@
   * 91212129 produces 9 because the only digit that matches the next one is the last digit, 9.
 ***/
 
-var fs = require('fs');
-var startTime = Date.now(); // "25 ms until midnight" check 
-var currDigit;
-var sum = 0;
+const fs = require('fs');
+const startTime = Date.now(); // "25 ms until midnight" check 
+let currDigit;
+let sum = 0;
 
 function checkDigit(d) {
   if(currDigit === d) {
@@ -24,7 +24,7 @@ function checkDigit(d) {
 }
 
 function getRoboCaptcha(input) {
-  var i = 0;
+  let i = 0;
 
   while(i < input.length) {
     checkDigit(Number(input.charAt(i)));
@@ -37,13 +37,13 @@ function getRoboCaptcha(input) {
 }
 
 //  Let's start!
-fs.readFile('./input', 'utf-8', function(err, data) {
+fs.readFile('./input', 'utf-8', (err, data) => {
   if(err) {
     console.log('>> Problem reading the file!');
     return process.exit(-1);
   }
 
-  console.log('>> Robot Code:', getRoboCaptcha(data));
-  console.log('>> Done in ... ' + (Date.now() - startTime) + ' ms');
+  console.log(`>> Robot Code: ${getRoboCaptcha(data)}`);
+  console.log(`>> Done in ... ${(Date.now() - startTime)} ms`);
   return process.exit();
 });
