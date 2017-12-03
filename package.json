@@ -14,7 +14,10 @@
     "url": "https://github.com/clineamb/adventofcode-2017/issues"
   },
   "homepage": "https://github.com/clineamb/adventofcode-2017#readme",
-  "dependencies": {},
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jasmine": "^2.4.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "jasmine": "^2.8.0"
