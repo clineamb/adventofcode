@@ -11,30 +11,8 @@
 ***/
 
 const fs = require('fs');
-const startTime = Date.now(); // "25 ms until midnight" check 
-let currDigit;
-let sum = 0;
-
-function checkDigit(d) {
-  if(currDigit === d) {
-    sum += d;
-  }
-
-  currDigit = d;
-}
-
-function getRoboCaptcha(input) {
-  let i = 0;
-
-  while(i < input.length) {
-    checkDigit(Number(input.charAt(i)));
-    i++;
-  }
-
-  checkDigit(input.charAt(0));
-
-  return sum;
-}
+const roboCompare = require('./roboCompare.js');
+const startTime = Date.now();
 
 //  Let's start!
 fs.readFile('./input', 'utf-8', (err, data) => {
@@ -43,7 +21,7 @@ fs.readFile('./input', 'utf-8', (err, data) => {
     return process.exit(-1);
   }
 
-  console.log(`>> Robot Code: ${getRoboCaptcha(data)}`);
+  console.log(`>> Robot Code: ${roboCompare(data)}`);
   console.log(`>> Done in ... ${(Date.now() - startTime)} ms`);
   return process.exit();
 });
