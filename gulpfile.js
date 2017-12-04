@@ -2,6 +2,6 @@ const gulp = require('gulp');
 const jasmine = require('gulp-jasmine');
 
 gulp.task('tests', () => {
-  gulp.src('./**/*.test.js')
+  gulp.src(['./day*/*.test.js'])
     .pipe(jasmine());
 });
