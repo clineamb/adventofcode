@@ -1,6 +1,6 @@
 const roboCompare = require('./roboCompare.js');
 
-describe('Day 01 Challenge', () => {
+describe('***** DAY 1 *****', () => {
   describe('Part 1 (offset 1, default)', () => {
     const part1Tests = [
       { captcha: '1122', code: 3 },

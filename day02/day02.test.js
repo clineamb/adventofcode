@@ -1,7 +1,7 @@
 const t = require('./checkrows.js');
 
-fdescribe('Day 2 Challenge', () => {
-  describe('Part 1', () => {
+describe('***** DAY 2 *****', () => {
+  describe('Part 1 (sum of min/max)', () => {
     it('should return the expected checksum', () => {
       const sheet = [
         [5, 1, 9, 5],
@@ -12,7 +12,7 @@ fdescribe('Day 2 Challenge', () => {
     });
   });
 
-  describe('Part 2', () => {
+  describe('Part 2 (some of even dividers)', () => {
     describe('#getEvenDividers', () => {
       const sheet = [
         { row: [5, 9, 2, 8], result: 4 },
@@ -21,20 +21,20 @@ fdescribe('Day 2 Challenge', () => {
       ];
 
       sheet.forEach(({row, result}, idx) => {
-        it(`it should return ${result} - case #${idx+1}`, () => {
+        it(`${JSON.stringify(row)} should return ${result} - case #${idx+1}`, () => {
           expect(t.getEvenDividers(row)).toBe(result);
         });
       })
     });
+  });
 
-    it('should sum the evenly divded division', () => {
-      const sheet = [
-        [5, 9, 2, 8],
-        [9, 4, 7, 3],
-        [3, 8, 6, 5]
-      ];
+  it('should sum the evenly divded division', () => {
+    const sheet = [
+      [5, 9, 2, 8],
+      [9, 4, 7, 3],
+      [3, 8, 6, 5]
+    ];
 
-      expect(t.checkmod(sheet)).toBe(9);
-    })
+    expect(t.checkmod(sheet)).toBe(9);
   });
 });
