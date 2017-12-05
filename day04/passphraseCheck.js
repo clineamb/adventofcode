@@ -11,7 +11,13 @@ function passphraseCheck(phrase) {
 }
 
 function anagramCheck(phrase) {
-  
+  let phraseArr = phrase.split(' ').sort();
+
+  phraseArr = phraseArr.map((p) => {
+    return  p.split('').sort().join('');
+  });
+
+  return passphraseCheck(phraseArr.join(' '));
 }
 
-module.exports = passphraseCheck;
+module.exports = { passphraseCheck, anagramCheck };

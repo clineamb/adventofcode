@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = fs.readFileSync('./passphrases', 'utf-8');
-const passphraseCheck= require('./passphraseCheck.js');
+const { passphraseCheck, anagramCheck } = require('./passphraseCheck.js');
 
 let phrases = data.split('\n');
 let count = 0;
@@ -11,4 +11,14 @@ phrases.forEach((phrase) => {
   }
 });
 
-console.log('>> COUNT:', count);
+console.log('>> PART 1 COUNT:', count);
+
+count = 0;
+
+phrases.forEach((phrase) => {
+  if(anagramCheck(phrase)) {
+    count++;
+  }
+});
+
+console.log('>> PART 2 COUNT:', count);

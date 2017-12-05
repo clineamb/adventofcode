@@ -1,6 +1,6 @@
-const passphraseCheck = require('./passphraseCheck.js');
+const { passphraseCheck, anagramCheck } = require('./passphraseCheck.js');
 
-fdescribe('***** DAY 4 *****', () => {
+describe('***** DAY 4 *****', () => {
   describe('Part 1 - #passphraseCheck', () => {
     const cases = [
       { phrase: 'aa bb cc dd ee', validResult: true },
@@ -17,6 +17,17 @@ fdescribe('***** DAY 4 *****', () => {
   });
 
   describe('Part 2 - #anagramCheck', () => {
-    const cases = [];
+    const cases = [
+      { phrase: 'abcde fghij', validResult: true },
+      { phrase: 'abcde xyz ecdab', validResult: false },
+      { phrase: 'a ab abc abd abf abj', validResult: true },
+      { phrase: 'iiii oiii ooii oooi oooo', validResult: true },
+      { phrase: 'oiii ioii iioi iiio', validResult: false }
+    ];
+    cases.forEach(({phrase, validResult}) => {
+      it(`'${phrase}' should ${(!validResult ? 'NOT' : '')} be valid`, () => {
+        expect(anagramCheck(phrase)).toBe(validResult);
+      });
+    });
   });
 });
