@@ -1,6 +1,6 @@
 const { stepper, stepperOffset } = require('./stepper.js');
 
-fdescribe('***** DAY 5 *****', () => {
+describe('***** DAY 5 *****', () => {
   var instructions;
 
   beforeEach(() => {
