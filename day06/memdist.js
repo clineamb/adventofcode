@@ -2,7 +2,7 @@ function stateHelper() {
   let states = [];
 
   function _prep(banks) {
-    return banks.join('');
+    return banks.join(',');
   }
 
   return {
@@ -20,6 +20,12 @@ function stateHelper() {
       }
 
       console.log(`ROUTINE ${idx}`, states[states.length-1]);
+    },
+    getLastStateStr: () => {
+      return states[states.length-1];
+    },
+    lastStateMatches: (stateStr) => {
+      return states[states.length - 1] === stateStr;
     }
   }
 }
@@ -58,4 +64,8 @@ function memdist(banks) {
   return count;
 }
 
-module.exports = { memdist };
+function loopCounter(banks) {
+
+}
+
+module.exports = { memdist, loopCounter };
