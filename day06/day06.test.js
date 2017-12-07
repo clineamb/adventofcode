@@ -1,7 +1,6 @@
 const { memdist, loopCounter } = require('./memdist.js');
 
-fdescribe('***** DAY 6 *****', () => {
-
+describe('***** DAY 6 *****', () => {
   describe('part 1 - memdist', () => {
     let bank = [0, 2, 7, 0];
     let endState = [2, 4, 1, 2];
