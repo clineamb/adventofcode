@@ -15,8 +15,6 @@ function parser(input) {
     let [ tnStr, subs ] = r.split('->').map((s) => { return s.trim(); })
     let data = getKeyAndWeight(tnStr);
 
-    console.log(subs);
-
     data['subs'] = (subs ? subs.split(', ') : []);
 
     dataRows.push(data);
