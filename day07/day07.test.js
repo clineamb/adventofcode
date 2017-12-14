@@ -4,7 +4,7 @@ const parser = require('./parser.js');
 const { TowerNode, Tower } = require('./Tower.js');
 const exampleText = fs.readFileSync(path.join(__dirname, 'sample_input.txt'), 'utf-8');
 
-fdescribe('***** DAY 7 - CHALLENGE *****', () => {
+describe('***** DAY 7 - CHALLENGE *****', () => {
   describe('#parser', () => {
 
   });

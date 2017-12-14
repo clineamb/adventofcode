@@ -6,7 +6,7 @@ describe('***** DAY 6 *****', () => {
     let endState = [2, 4, 1, 2];
 
     it('should distribute 5 times before we we see the same state', () => {
-      expect(memdist(bank)).toBe(5);
+      expect(memdist(bank, true)).toBe(5);
     });
     it('should match [2, 4, 1, 2] at the end', ()=>{
       expect(bank).toEqual(endState);
@@ -17,7 +17,7 @@ describe('***** DAY 6 *****', () => {
     let bank = [0, 2, 7, 0];
     
     it('should have a loop of 4', () => { 
-      expect(loopCounter(bank)).toBe(4);
+      expect(loopCounter(bank, true)).toBe(4);
     });
   });
 });

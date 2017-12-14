@@ -1,5 +1,6 @@
 function stateHelper() {
-  let states = [];
+  var states = [];
+  var dupe = '';
 
   function _prep(banks) {
     return banks.join(',');
@@ -7,7 +8,8 @@ function stateHelper() {
 
   return {
     isUnique: (banks) => {
-      return states.indexOf(_prep(banks)) < 0;
+      let isUnique = states.indexOf(_prep(banks)) < 0;
+      return isUnique;
     },
     add: (banks) => {
       states.push(_prep(banks));
@@ -16,16 +18,17 @@ function stateHelper() {
     },
     log: (idx, startTime) => { 
       if(startTime) {
-        console.log(`ROUTINE ${idx} tick:`, Date.now() - startTime);
+        console.log(`ROUTINE ${idx} -- tick:`, Date.now() - startTime);
       }
 
-      console.log(`ROUTINE ${idx}`, states[states.length-1]);
+      console.log(`ROUTINE ${idx} --`, states[states.length-1]);
     },
-    getLastStateStr: () => {
-      return states[states.length-1];
-    },
-    lastStateMatches: (stateStr) => {
-      return states[states.length - 1] === stateStr;
+    hasSeenDupe(banks) {
+      if(dupe.length <= 0) {
+        return false;
+      }
+      console.log('DUPE', dupe);
+      return dupe === _prep(banks);
     }
   }
 }
@@ -49,7 +52,7 @@ function allocate(banks) {
   return banks;
 }
 
-function memdist(banks) {
+function memdist(banks, log=false) {
   let count = 0;
   let state = stateHelper();
   let startTime = Date.now();
@@ -58,14 +61,32 @@ function memdist(banks) {
     state.add(banks);
     banks = allocate(banks);
     count++;
-    state.log(count, startTime);
+
+    if(log) { state.log(count, startTime); }
   }
 
   return count;
 }
 
-function loopCounter(banks) {
+function loopCounter(banks, log=false) {
+  let count = 0;
+  let state = stateHelper();
+  let sawDupe = false;
 
+  while(!state.hasSeenDupe(banks)) {
+    if(!state.isUnique(banks) && !sawDupe) {
+      count = 0; // reset the count
+      sawDupe = true;
+    }
+
+    state.add(banks);
+    banks = allocate(banks);
+    count++;
+
+    if(log) { state.log(count) }
+  }
+
+  return count;
 }
 
 module.exports = { memdist, loopCounter };
