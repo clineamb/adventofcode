@@ -20,14 +20,13 @@ function stateHelper() {
       if(startTime) {
         console.log(`ROUTINE ${idx} -- tick:`, Date.now() - startTime);
       }
-
       console.log(`ROUTINE ${idx} --`, states[states.length-1]);
     },
     hasSeenDupe(banks) {
       if(dupe.length <= 0) {
         return false;
       }
-      console.log('DUPE', dupe);
+      // console.log('DUPE', dupe);
       return dupe === _prep(banks);
     }
   }

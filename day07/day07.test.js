@@ -9,7 +9,7 @@ describe('***** DAY 7 - CHALLENGE *****', () => {
 
   });
 
-  describe('Tower', () => {
+  describe('Tower#getBottom', () => {
     let data = parser(exampleText);
 
     it('should have Tower.getBottom return `tknk` w/ example', () => {
