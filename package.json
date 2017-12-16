@@ -1,5 +1,5 @@
 {
-  "name": "adventofcode-2017",
+  "name": "adventofcode",
   "version": "1.0.0",
   "description": "clineamb's answers for Advent of Code 2017",
   "main": "index.js",
